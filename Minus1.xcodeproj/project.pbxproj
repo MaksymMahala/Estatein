@@ -24,18 +24,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		848291B12CAAC00C00A9F257 /* Estatein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Estatein.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		848291C12CAAC00D00A9F257 /* EstateinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstateinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		848291CB2CAAC00E00A9F257 /* EstateinUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = EstateinUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		848291B12CAAC00C00A9F257 /* Minus1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minus1.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		848291C12CAAC00D00A9F257 /* Minus1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Minus1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		848291CB2CAAC00E00A9F257 /* Minus1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Minus1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
-		848292842CAAFAC200A9F257 /* Exceptions for "Estatein" folder in "Estatein" target */ = {
+		848292842CAAFAC200A9F257 /* Exceptions for "Estatein" folder in "Minus1" target */ = {
 			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
 			membershipExceptions = (
 				Info.plist,
 			);
-			target = 848291B02CAAC00C00A9F257 /* Estatein */;
+			target = 848291B02CAAC00C00A9F257 /* Minus1 */;
 		};
 /* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
@@ -43,7 +43,7 @@
 		848291B32CAAC00C00A9F257 /* Estatein */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			exceptions = (
-				848292842CAAFAC200A9F257 /* Exceptions for "Estatein" folder in "Estatein" target */,
+				848292842CAAFAC200A9F257 /* Exceptions for "Estatein" folder in "Minus1" target */,
 			);
 			path = Estatein;
 			sourceTree = "<group>";
@@ -98,9 +98,9 @@
 		848291B22CAAC00C00A9F257 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				848291B12CAAC00C00A9F257 /* Estatein.app */,
-				848291C12CAAC00D00A9F257 /* EstateinTests.xctest */,
-				848291CB2CAAC00E00A9F257 /* EstateinUITests.xctest */,
+				848291B12CAAC00C00A9F257 /* Minus1.app */,
+				848291C12CAAC00D00A9F257 /* Minus1Tests.xctest */,
+				848291CB2CAAC00E00A9F257 /* Minus1UITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -108,9 +108,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		848291B02CAAC00C00A9F257 /* Estatein */ = {
+		848291B02CAAC00C00A9F257 /* Minus1 */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 848291D52CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Estatein" */;
+			buildConfigurationList = 848291D52CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Minus1" */;
 			buildPhases = (
 				848291AD2CAAC00C00A9F257 /* Sources */,
 				848291AE2CAAC00C00A9F257 /* Frameworks */,
@@ -123,16 +123,16 @@
 			fileSystemSynchronizedGroups = (
 				848291B32CAAC00C00A9F257 /* Estatein */,
 			);
-			name = Estatein;
+			name = Minus1;
 			packageProductDependencies = (
 			);
 			productName = Estatein;
-			productReference = 848291B12CAAC00C00A9F257 /* Estatein.app */;
+			productReference = 848291B12CAAC00C00A9F257 /* Minus1.app */;
 			productType = "com.apple.product-type.application";
 		};
-		848291C02CAAC00D00A9F257 /* EstateinTests */ = {
+		848291C02CAAC00D00A9F257 /* Minus1Tests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 848291D82CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "EstateinTests" */;
+			buildConfigurationList = 848291D82CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Minus1Tests" */;
 			buildPhases = (
 				848291BD2CAAC00D00A9F257 /* Sources */,
 				848291BE2CAAC00D00A9F257 /* Frameworks */,
@@ -146,16 +146,16 @@
 			fileSystemSynchronizedGroups = (
 				848291C42CAAC00E00A9F257 /* EstateinTests */,
 			);
-			name = EstateinTests;
+			name = Minus1Tests;
 			packageProductDependencies = (
 			);
 			productName = EstateinTests;
-			productReference = 848291C12CAAC00D00A9F257 /* EstateinTests.xctest */;
+			productReference = 848291C12CAAC00D00A9F257 /* Minus1Tests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		848291CA2CAAC00E00A9F257 /* EstateinUITests */ = {
+		848291CA2CAAC00E00A9F257 /* Minus1UITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 848291DB2CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "EstateinUITests" */;
+			buildConfigurationList = 848291DB2CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Minus1UITests" */;
 			buildPhases = (
 				848291C72CAAC00E00A9F257 /* Sources */,
 				848291C82CAAC00E00A9F257 /* Frameworks */,
@@ -169,11 +169,11 @@
 			fileSystemSynchronizedGroups = (
 				848291CE2CAAC00E00A9F257 /* EstateinUITests */,
 			);
-			name = EstateinUITests;
+			name = Minus1UITests;
 			packageProductDependencies = (
 			);
 			productName = EstateinUITests;
-			productReference = 848291CB2CAAC00E00A9F257 /* EstateinUITests.xctest */;
+			productReference = 848291CB2CAAC00E00A9F257 /* Minus1UITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -199,7 +199,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 848291AC2CAAC00C00A9F257 /* Build configuration list for PBXProject "Estatein" */;
+			buildConfigurationList = 848291AC2CAAC00C00A9F257 /* Build configuration list for PBXProject "Minus1" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -213,9 +213,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				848291B02CAAC00C00A9F257 /* Estatein */,
-				848291C02CAAC00D00A9F257 /* EstateinTests */,
-				848291CA2CAAC00E00A9F257 /* EstateinUITests */,
+				848291B02CAAC00C00A9F257 /* Minus1 */,
+				848291C02CAAC00D00A9F257 /* Minus1Tests */,
+				848291CA2CAAC00E00A9F257 /* Minus1UITests */,
 			);
 		};
 /* End PBXProject section */
@@ -271,12 +271,12 @@
 /* Begin PBXTargetDependency section */
 		848291C32CAAC00D00A9F257 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 848291B02CAAC00C00A9F257 /* Estatein */;
+			target = 848291B02CAAC00C00A9F257 /* Minus1 */;
 			targetProxy = 848291C22CAAC00D00A9F257 /* PBXContainerItemProxy */;
 		};
 		848291CD2CAAC00E00A9F257 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 848291B02CAAC00C00A9F257 /* Estatein */;
+			target = 848291B02CAAC00C00A9F257 /* Minus1 */;
 			targetProxy = 848291CC2CAAC00E00A9F257 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -477,7 +477,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Estatein.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Estatein";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minus1.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Minus1";
 			};
 			name = Debug;
 		};
@@ -495,7 +495,7 @@
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Estatein.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Estatein";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Minus1.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Minus1";
 			};
 			name = Release;
 		};
@@ -534,7 +534,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		848291AC2CAAC00C00A9F257 /* Build configuration list for PBXProject "Estatein" */ = {
+		848291AC2CAAC00C00A9F257 /* Build configuration list for PBXProject "Minus1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				848291D32CAAC00E00A9F257 /* Debug */,
@@ -543,7 +543,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		848291D52CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Estatein" */ = {
+		848291D52CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Minus1" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				848291D62CAAC00E00A9F257 /* Debug */,
@@ -552,7 +552,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		848291D82CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "EstateinTests" */ = {
+		848291D82CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Minus1Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				848291D92CAAC00E00A9F257 /* Debug */,
@@ -561,7 +561,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		848291DB2CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "EstateinUITests" */ = {
+		848291DB2CAAC00E00A9F257 /* Build configuration list for PBXNativeTarget "Minus1UITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				848291DC2CAAC00E00A9F257 /* Debug */,
