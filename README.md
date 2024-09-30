@@ -1,47 +1,57 @@
-# Real Estate App
+CryptoApp
 
-## Overview
+CryptoApp is a simple and efficient cryptocurrency tracking application built with Swift. This application allows users to view real-time prices, track their cryptocurrency portfolio, and get the latest news in the crypto world.
 
-The Real Estate App is an iOS application developed using Swift that allows users to browse, search, and manage real estate listings. The app provides a user-friendly interface for both potential buyers and real estate agents to view properties, save favorites, and get in touch with sellers.
+Features
+Real-time Price Tracking: View current prices for various cryptocurrencies.
+Portfolio Management: Track your cryptocurrency holdings and portfolio performance.
+Market Trends: Stay updated with the latest market trends and news.
+User-Friendly Interface: Intuitive and easy-to-navigate user interface.
+Price Alerts: Set price alerts for specific cryptocurrencies.
+Technologies Used
+Swift: Main programming language for iOS development.
+UIKit/SwiftUI: Frameworks used for building the user interface.
+CoreData: For local data storage.
+Alamofire: For networking and API requests.
+CoinGecko API: For fetching real-time cryptocurrency data.
+Installation
+Prerequisites
+Xcode 12.0 or later
+iOS 13.0 or later
+Clone the Repository
+bash
+Копіювати код
+git clone https://github.com/yourusername/CryptoApp.git
+cd CryptoApp
+Open the Project
+Open the CryptoApp.xcodeproj file in Xcode.
 
-## Features
+Install Dependencies
+If you're using CocoaPods, navigate to the project directory and run:
 
-- **User Authentication**: Sign up and log in using Apple Sign-In or email/password.
-- **Property Listings**: Browse and search for properties with detailed descriptions, images, and pricing.
-- **Favorites**: Save your favorite properties for quick access later.
-- **Map View**: View properties on a map and see their locations.
-- **Responsive Design**: Optimized for various iOS devices and screen sizes.
-- **Firebase Integration**: Data storage and management using Firebase Firestore.
-
-## Technologies Used
-
-- Swift
-- SwiftUI
-- Firebase (Firestore for database)
-- MapKit for map functionalities
-- Combine for reactive programming
-- Xcode for development
-
-## Installation
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/MaksymMahala/Estatein.git 
+bash
+Копіювати код
+pod install
+Run the Application
+Select your target device or simulator in Xcode and click the Run button.
 
 Usage
-Launch the app.
-Sign up or log in.
-Browse property listings.
-Use the map view to find properties near your location.
-Save your favorite listings.
+Launch the App: Open the app on your device or simulator.
+Browse Cryptocurrencies: View a list of available cryptocurrencies and their current prices.
+Add to Portfolio: Select cryptocurrencies to add them to your portfolio.
+Set Alerts: Configure alerts for price changes.
+View News: Stay informed with the latest news articles related to cryptocurrency.
+API Reference
+This application uses the CoinGecko API for fetching cryptocurrency data. Make sure to adhere to their API usage guidelines.
+
 Contributing
-Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+Contributions are welcome! Please read the CONTRIBUTING.md for more information.
 
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
 
 Acknowledgments
-Thank you to the developers of the frameworks and libraries used in this project.
-Special thanks to the real estate data providers for their APIs and resources.
-
-Feel free to modify any sections to better fit your project's specifics, like adding additional features or technologies you used. Let me know if you need any further adjustments!
+CoinGecko for providing the cryptocurrency data API.
+Alamofire for networking.
+Inspiration from various open-source cryptocurrency applications.
+Feel free to modify this template according to your application’s specific features and functionality. Including images, badges, or links to demo videos can also enhance the README’s effectiveness.
