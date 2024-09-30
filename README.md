@@ -27,3 +27,21 @@ The Real Estate App is an iOS application developed using Swift that allows user
 1. Clone the repository:
    ```bash
    git clone https://github.com/MaksymMahala/Estatein.git 
+
+Usage
+Launch the app.
+Sign up or log in.
+Browse property listings.
+Use the map view to find properties near your location.
+Save your favorite listings.
+Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
+
+License
+This project is licensed under the MIT License. See the LICENSE file for details.
+
+Acknowledgments
+Thank you to the developers of the frameworks and libraries used in this project.
+Special thanks to the real estate data providers for their APIs and resources.
+
+Feel free to modify any sections to better fit your project's specifics, like adding additional features or technologies you used. Let me know if you need any further adjustments!
