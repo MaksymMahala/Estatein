@@ -16,7 +16,7 @@ struct MainView: View {
             case "Home":
                 HomeView()
             case "Markets":
-                ContentView()
+                MarketsView()
             case "Trades":
                 ContentView()
             case "Activity":
