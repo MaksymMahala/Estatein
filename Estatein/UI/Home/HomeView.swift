@@ -37,30 +37,9 @@ struct HomeView: View {
                     
                     topCoins
                 }
-                .toolbar { toolBar }
+                .applyToolbar()
             }
             .ignoresSafeArea(edges: .top)
-        }
-    }
-
-    private var toolBar: some ToolbarContent {
-        Group {
-            ToolbarItem(placement: .topBarLeading) {
-                Image(.toolbarIcon)
-            }
-            
-            ToolbarItem(placement: .topBarTrailing) {
-                HStack {
-                    ForEach(viewModel.imageToolBar.indices, id: \.self) { image in
-                        Button {
-                            // Action
-                        } label: {
-                            Image(viewModel.imageToolBar[image])
-                                .padding(.horizontal, Constants.HomeView.toolBarButtonPadding)
-                        }
-                    }
-                }
-            }
         }
     }
 
@@ -154,21 +133,8 @@ struct HomeView: View {
         VStack(alignment: .leading) {
             Text("Recent Coins")
                 .font(Font.soraBold20)
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    RoundedRectangle(cornerRadius: Constants.HomeView.coinCornerRadius)
-                        .frame(width: Constants.HomeView.coinCardWidth, height: Constants.HomeView.coinCardHeight)
-                        .foregroundStyle(Color.white)
-                        .shadow(radius: Constants.HomeView.shadowRadius)
-                        .padding(Constants.HomeView.coinPadding)
-                    
-                    RoundedRectangle(cornerRadius: Constants.HomeView.coinCornerRadius)
-                        .frame(width: Constants.HomeView.coinCardWidth, height: Constants.HomeView.coinCardHeight)
-                        .foregroundStyle(Color.white)
-                        .shadow(radius: Constants.HomeView.shadowRadius)
-                        .padding(Constants.HomeView.coinPadding)
-                }
-            }
+            
+            RecentCoinsView()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()
@@ -179,21 +145,7 @@ struct HomeView: View {
             Text("Top Coins")
                 .font(Font.soraBold20)
             
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack {
-                    RoundedRectangle(cornerRadius: Constants.HomeView.coinCornerRadius)
-                        .frame(width: Constants.HomeView.coinCardWidth, height: Constants.HomeView.coinCardHeight)
-                        .foregroundStyle(Color.white)
-                        .shadow(radius: Constants.HomeView.shadowRadius)
-                        .padding(Constants.HomeView.coinPadding)
-                    
-                    RoundedRectangle(cornerRadius: Constants.HomeView.coinCornerRadius)
-                        .frame(width: Constants.HomeView.coinCardWidth, height: Constants.HomeView.coinCardHeight)
-                        .foregroundStyle(Color.white)
-                        .shadow(radius: Constants.HomeView.shadowRadius)
-                        .padding(Constants.HomeView.coinPadding)
-                }
-            }
+            RecentCoinsView()
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .padding()

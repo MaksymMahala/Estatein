@@ -8,5 +8,5 @@
 import Foundation
 
 class MainViewModel: ObservableObject {
-    @Published var selectedTab = "Menu"
+    @Published var selectedTab = "Home"
 }
