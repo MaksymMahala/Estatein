@@ -33,9 +33,7 @@ struct HomeView: View {
                     }
                     .padding(.vertical, Constants.HomeView.sectionVerticalPadding)
                     
-                    recentCoins
-                    
-                    topCoins
+                    GroupedCoinsSection()
                 }
                 .applyToolbar()
             }
@@ -127,28 +125,6 @@ struct HomeView: View {
                 .foregroundStyle(Color.lightGrayColor)
         }
         .padding(.horizontal)
-    }
-
-    private var recentCoins: some View {
-        VStack(alignment: .leading) {
-            Text("Recent Coins")
-                .font(Font.soraBold20)
-            
-            RecentCoinsView()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
-    }
-
-    private var topCoins: some View {
-        VStack(alignment: .leading) {
-            Text("Top Coins")
-                .font(Font.soraBold20)
-            
-            RecentCoinsView()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .padding()
     }
 }
 

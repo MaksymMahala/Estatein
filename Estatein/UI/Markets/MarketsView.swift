@@ -8,10 +8,8 @@
 import SwiftUI
 
 struct MarketsView: View {
-    @StateObject private var webSocketManager = WebSocketManager()
-    @StateObject private var viewModel = CryptoViewModel()
     var stringFormatter = StringFormatter.shared
-    
+    @State var selectValue = 0
     var body: some View {
         NavigationStack {
             ZStack {
@@ -19,42 +17,20 @@ struct MarketsView: View {
                     .ignoresSafeArea()
                 
                 VStack {
-                    ScrollView(showsIndicators: false) {
-                        VStack {
-                            ForEach(viewModel.cryptocurrencies) { crypto in
-                                HStack {
-                                    AsyncImage(url: URL(string: crypto.icon)) { image in
-                                        image.resizable()
-                                            .scaledToFit()
-                                            .frame(width: 40, height: 40)
-                                            .padding(.leading, 5)
-                                    } placeholder: {
-                                        ProgressView()
-                                    }
-                                    
-                                    VStack(alignment: .leading) {
-                                        Text(crypto.name)
-                                            .font(Font.soraMedium15)
-                                            .foregroundStyle(Color.white)
-                                        Text(webSocketManager.symbol)
-                                            .font(Font.orbitronRegular12)
-                                            .foregroundStyle(Color.gray)
-                                        
-                                    }
-                                    .padding(.horizontal, 5)
-                                    
-                                    Spacer()
-                                    
-                                    Text("$\(stringFormatter.formatPrice(webSocketManager.price))")
-                                        .font(Font.soraBold15)
-                                        .foregroundStyle(Color.white)
-                                }
-                                .frame(height: 70)
-                                .padding(.horizontal)
-                            }
-                        }
+                    CategoryValueType(selectValue: $selectValue)
+                    
+                    switch selectValue {
+                    case 0:
+                        ProgressView()
+                    case 1:
+                        SpotCurrenciesView()
+                    case 2:
+                        FuturesCurrenciesView()
+                    case 3:
+                        ProgressView()
+                    default:
+                        ProgressView()
                     }
-                    .padding(.vertical)
                     
                     Button {
                         
@@ -67,12 +43,6 @@ struct MarketsView: View {
                 }
             }
             .applyToolbar()
-            .onDisappear {
-                webSocketManager.disconnect()
-            }
-            .onAppear {
-                viewModel.fetchCryptocurrencies()
-            }
         }
     }
 }
