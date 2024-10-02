@@ -8,12 +8,13 @@
 import Foundation
 import SwiftUI
 
-struct RecentCoinCell: View {
+struct CoinCell: View {
     @ObservedObject var webSocketManager: WebSocketManager
-    @ObservedObject var viewModel: CryptoViewModel
+    @ObservedObject var viewModel: CryptoCompactInfoViewModel
     var stringFormatter = StringFormatter.shared
-    var crypto: CryptoCurrency
-
+    var symbol: String
+    var cryptocurrency: CryptoCurrencyCompactInfo
+    
     var body: some View {
         ZStack(alignment: .top) {
             RoundedRectangle(cornerRadius: 20)
@@ -23,11 +24,11 @@ struct RecentCoinCell: View {
                 .padding(5)
             VStack {
                 HStack {
-                    Text("$\(stringFormatter.formatPrice(webSocketManager.price))")
+                    Text("$\(stringFormatter.formatPrice(webSocketManager.prices[symbol] ?? "N/A"))")
                         .font(Font.soraBold12)
                         .foregroundStyle(Color.greenGrass)
                     
-                    AsyncImage(url: URL(string: crypto.icon)) { image in
+                    AsyncImage(url: URL(string: cryptocurrency.icon)) { image in
                         image.resizable()
                             .scaledToFit()
                             .frame(width: 25, height: 25)
@@ -40,9 +41,9 @@ struct RecentCoinCell: View {
                 .padding(.vertical)
                 
                 VStack(alignment: .leading) {
-                    Text(crypto.name)
+                    Text(cryptocurrency.name)
                         .foregroundStyle(Color.black)
-                    Text(webSocketManager.symbol).font(.subheadline).foregroundColor(.gray)
+                    Text(symbol).font(.orbitronRegular12).foregroundColor(.gray)
                 }
                 .font(Font.orbitronRegular14)
                 .frame(width: 110, height: 3, alignment: .leading)

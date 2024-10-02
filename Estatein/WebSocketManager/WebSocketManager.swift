@@ -1,4 +1,3 @@
-//
 //  SocketClient.swift
 //  Minus1
 //
@@ -6,62 +5,95 @@
 //
 
 import Foundation
-import SocketIO
 import Combine
 
 class WebSocketManager: ObservableObject {
-    @Published var price: String = ""
-    @Published var symbol: String = "BTC"
-
+    @Published var prices: [String: String] = [:]
     private var webSocketTask: URLSessionWebSocketTask?
-    private var cancellables = Set<AnyCancellable>()
-
-    init() {
-        connect()
-    }
-
+    
+    // Connect to the WebSocket server
     func connect() {
-        let url = URL(string: Constants.WebSocketURLServer.webSocketURLServer)!
+        let url = URL(string: "ws://localhost:8080")!
         webSocketTask = URLSession.shared.webSocketTask(with: url)
         webSocketTask?.resume()
-        listen()
+        print("Connected to WebSocket server")
     }
-
-    private func listen() {
+    
+    // Subscribe to the Spot stream
+    func subscribeToSpot() {
+        connect()
+        let subscribeMessage = "{\"type\": \"spot\"}"
+        sendMessage(subscribeMessage)
+        receiveMessages()
+    }
+    
+    // Subscribe to the Futures stream
+    func subscribeToFutures() {
+        connect()
+        let subscribeMessage = "{\"type\": \"futures\"}"
+        sendMessage(subscribeMessage)
+        receiveMessages()
+    }
+    
+    // Function to send a message over WebSocket
+    private func sendMessage(_ message: String) {
+        let messageToSend = URLSessionWebSocketTask.Message.string(message)
+        webSocketTask?.send(messageToSend) { error in
+            if let error = error {
+                print("Error sending message: \(error.localizedDescription)")
+            }
+        }
+    }
+    
+    // Receive messages from the WebSocket server
+    private func receiveMessages() {
         webSocketTask?.receive { [weak self] result in
             switch result {
+            case .failure(let error):
+                print("WebSocket error: \(error.localizedDescription)")
+                self?.reconnect() 
             case .success(let message):
                 switch message {
                 case .string(let text):
-                    self?.handleMessage(text)
+                    self?.processMessage(text: text)
                 default:
                     break
                 }
-            case .failure(let error):
-                print("Error receiving message: \(error)")
             }
-            self?.listen() 
+            // Continue receiving messages
+            self?.receiveMessages()
         }
     }
-
-    private func handleMessage(_ text: String) {
+    
+    // Process incoming messages
+    private func processMessage(text: String) {
         if let data = text.data(using: .utf8) {
             do {
-                if let json = try JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
-                   let price = json["price"] as? String,
-                   let symbol = json["symbol"] as? String {
-                    DispatchQueue.main.async {
-                        self.price = price
-                        self.symbol = symbol
-                    }
+                let priceUpdate = try JSONDecoder().decode(PriceUpdate.self, from: data)
+                DispatchQueue.main.async {
+                    self.prices[priceUpdate.symbol] = priceUpdate.price
                 }
             } catch {
-                print("Error parsing JSON: \(error)")
+                print("Error decoding message: \(error)")
             }
         }
     }
-
-    func disconnect() {
-        webSocketTask?.cancel(with: .normalClosure, reason: nil)
+    
+    private func reconnect() {
+        print("Attempting to reconnect...")
+        disconnect()
+        connect()
     }
+    
+    // Disconnect from the WebSocket server
+    func disconnect() {
+        webSocketTask?.cancel(with: .goingAway, reason: nil)
+        print("Disconnected from WebSocket server")
+    }
+}
+
+struct PriceUpdate: Codable {
+    let type: String
+    let symbol: String
+    let price: String
 }

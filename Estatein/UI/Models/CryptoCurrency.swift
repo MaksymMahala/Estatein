@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct CryptoCurrency: Identifiable, Codable {
+struct CryptoCurrencyCompactInfo: Identifiable, Codable {
     let id: Int
     let symbol: String
     let name: String
