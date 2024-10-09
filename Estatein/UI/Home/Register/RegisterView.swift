@@ -32,7 +32,7 @@ struct RegisterView: View {
     }
     
     @ViewBuilder private var background: some View {
-        Color.colorLogin
+        Color.darkSky
             .ignoresSafeArea()
         
         Image(.backgroundLogin)

@@ -17,6 +17,8 @@ extension Font {
     static var soraMedium15 = Font.custom("Sora-Medium", fixedSize: 15)
     static var soraMedium20 = Font.custom("Sora-Medium", fixedSize: 20)
 
+    static var soraRegular10 = Font.custom("Sora-Regular", fixedSize: 10)
+    static var soraRegular12 = Font.custom("Sora-Regular", fixedSize: 12)
     static var soraRegular15 = Font.custom("Sora-Regular", fixedSize: 15)
     static var soraRegular20 = Font.custom("Sora-Regular", fixedSize: 20)
 
@@ -26,5 +28,7 @@ extension Font {
     static var orbitronRegular8 = Font.custom("Orbitron-Regular", fixedSize: 8)
 
     static var orbitronBold12 = Font.custom("Orbitron-Bold", fixedSize: 12)
+    static var orbitronBold15 = Font.custom("Orbitron-Bold", fixedSize: 15)
+    static var orbitronBold20 = Font.custom("Orbitron-Bold", fixedSize: 20)
 
 }
