@@ -15,5 +15,6 @@ extension Color {
     static let greenGrassColor: Color = Color.greenGrass
     static let lightGrayColor: Color = Color.grayLight
     static let buttonGray: Color = Color.grayButton
-    static let colorLogin: Color = Color.login
+    static let skyDark: Color = Color.darkSky
+    static let darkBackgroundColor: Color = Color.backgroundColorDark
 }

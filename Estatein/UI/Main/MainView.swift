@@ -20,9 +20,9 @@ struct MainView: View {
             case "Trades":
                 ContentView()
             case "Activity":
-                ContentView()
+                ActivityView()
             case "Wallets":
-                ContentView ()
+                CashManagementView ()
             default:
                 HomeView()
             }
