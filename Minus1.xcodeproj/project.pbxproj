@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		848E9A9D2CB7D66A001B14F5 /* Minus1_Chart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */; };
+		848E9A9E2CB7D66A001B14F5 /* Minus1_Chart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A92E472CAC03350014503B /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 84A92E462CAC03350014503B /* SocketIO */; };
 /* End PBXBuildFile section */
 
@@ -27,10 +29,25 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		848E9A9F2CB7D66A001B14F5 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				848E9A9E2CB7D66A001B14F5 /* Minus1_Chart.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		848291B12CAAC00C00A9F257 /* Minus1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minus1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848291C12CAAC00D00A9F257 /* Minus1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Minus1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		848291CB2CAAC00E00A9F257 /* Minus1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Minus1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Minus1_Chart.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -69,6 +86,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848E9A9D2CB7D66A001B14F5 /* Minus1_Chart.framework in Frameworks */,
 				84A92E472CAC03350014503B /* SocketIO in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -96,6 +114,7 @@
 				848291B32CAAC00C00A9F257 /* Estatein */,
 				848291C42CAAC00E00A9F257 /* EstateinTests */,
 				848291CE2CAAC00E00A9F257 /* EstateinUITests */,
+				848E97CB2CB7CED9001B14F5 /* Frameworks */,
 				848291B22CAAC00C00A9F257 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -110,6 +129,14 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		848E97CB2CB7CED9001B14F5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -120,6 +147,7 @@
 				848291AD2CAAC00C00A9F257 /* Sources */,
 				848291AE2CAAC00C00A9F257 /* Frameworks */,
 				848291AF2CAAC00C00A9F257 /* Resources */,
+				848E9A9F2CB7D66A001B14F5 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -419,6 +447,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Estatein/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Estatein/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -450,6 +482,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Estatein/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Estatein/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;

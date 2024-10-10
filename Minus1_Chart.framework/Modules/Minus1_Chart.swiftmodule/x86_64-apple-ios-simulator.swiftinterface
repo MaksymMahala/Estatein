@@ -1,0 +1,93 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 6.0 effective-5.10 (swiftlang-6.0.0.9.10 clang-1600.0.26.2)
+// swift-module-flags: -target x86_64-apple-ios18.0-simulator -enable-objc-interop -enable-library-evolution -swift-version 5 -enforce-exclusivity=checked -Onone -enable-experimental-feature OpaqueTypeErasure -enable-bare-slash-regex -module-name Minus1_Chart
+import Combine
+import Foundation
+@_exported import Minus1_Chart
+import Swift
+import SwiftUI
+import _Concurrency
+import _StringProcessing
+import _SwiftConcurrencyShims
+public struct CryptoCandle : Swift.Identifiable, Swift.Codable {
+  public let id: Foundation.UUID
+  public let openTime: Foundation.Date
+  public let open: Swift.Double
+  public let high: Swift.Double
+  public let low: Swift.Double
+  public let close: Swift.Double
+  public let volume: Swift.Double
+  public let closeTime: Foundation.Date
+  public let quoteAssetVolume: Swift.Double
+  public let numberOfTrades: Swift.Int
+  public let takerBuyBaseAssetVolume: Swift.Double
+  public let takerBuyQuoteAssetVolume: Swift.Double
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public typealias ID = Foundation.UUID
+  public func encode(to encoder: any Swift.Encoder) throws
+  public init(from decoder: any Swift.Decoder) throws
+}
+public struct BinanceKlineResponse : Swift.Decodable {
+  public init(from decoder: any Swift.Decoder) throws
+}
+@_Concurrency.MainActor @preconcurrency public struct CandleStickChartView : SwiftUICore.View {
+  @_Concurrency.MainActor @preconcurrency public init()
+  @_Concurrency.MainActor @preconcurrency public var body: some SwiftUICore.View {
+    get
+  }
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public typealias Body = @_opaqueReturnTypeOf("$s12Minus1_Chart011CandleStickB4ViewV4bodyQrvp", 0) __
+}
+
+public protocol CryptoAPIServiceProtocol {
+  func fetchCandlestickData(for symbol: Swift.String, interval: Swift.String, limit: Swift.Int) -> Combine.AnyPublisher<[Minus1_Chart.CryptoCandle], any Swift.Error>
+}
+public class CryptoAPIService : Minus1_Chart.CryptoAPIServiceProtocol {
+  public init()
+  public func fetchCandlestickData(for symbol: Swift.String, interval: Swift.String, limit: Swift.Int = 500) -> Combine.AnyPublisher<[Minus1_Chart.CryptoCandle], any Swift.Error>
+  @objc deinit
+}
+public class CryptoChartViewModel : Foundation.ObservableObject {
+  @Combine.Published @_projectedValueProperty($candles) public var candles: [Minus1_Chart.CryptoCandle] {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  public var $candles: Combine.Published<[Minus1_Chart.CryptoCandle]>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($errorMessage) public var errorMessage: Swift.String? {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  public var $errorMessage: Combine.Published<Swift.String?>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  @Combine.Published @_projectedValueProperty($isLoading) public var isLoading: Swift.Bool {
+    get
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    set
+    @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+    _modify
+  }
+  public var $isLoading: Combine.Published<Swift.Bool>.Publisher {
+    get
+    @available(iOS 14.0, tvOS 14.0, watchOS 7.0, macOS 11.0, *)
+    set
+  }
+  public init(apiService: any Minus1_Chart.CryptoAPIServiceProtocol = CryptoAPIService())
+  public func loadCandlestickData(symbol: Swift.String, interval: Swift.String)
+  @available(iOS 13.0, tvOS 13.0, watchOS 6.0, macOS 10.15, *)
+  public typealias ObjectWillChangePublisher = Combine.ObservableObjectPublisher
+  @objc deinit
+}
+extension Minus1_Chart.CandleStickChartView : Swift.Sendable {}
