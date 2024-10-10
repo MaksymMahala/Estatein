@@ -1,0 +1,6 @@
+framework module Minus1_Chart {
+  umbrella header "Minus1_Chart.h"
+  export *
+
+  module * { export * }
+}
