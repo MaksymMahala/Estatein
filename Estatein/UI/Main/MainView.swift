@@ -18,11 +18,11 @@ struct MainView: View {
             case "Markets":
                 MarketsView()
             case "Trades":
-                ContentView()
+                TradingView()
             case "Activity":
                 ActivityView()
             case "Wallets":
-                CashManagementView ()
+                CashManagementView()
             default:
                 HomeView()
             }

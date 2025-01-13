@@ -30,7 +30,7 @@ struct CashManagementView: View {
                     .padding(.horizontal)
                 }
                 
-                SpotCurrenciesView() //!will be change in user history shopping
+//                SpotCurrenciesView() //!will be change in user history shopping
             }
         }
         .ignoresSafeArea()

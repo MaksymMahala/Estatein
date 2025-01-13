@@ -19,6 +19,7 @@ extension Font {
 
     static var soraRegular10 = Font.custom("Sora-Regular", fixedSize: 10)
     static var soraRegular12 = Font.custom("Sora-Regular", fixedSize: 12)
+    static var soraRegular13 = Font.custom("Sora-Regular", fixedSize: 13)
     static var soraRegular15 = Font.custom("Sora-Regular", fixedSize: 15)
     static var soraRegular20 = Font.custom("Sora-Regular", fixedSize: 20)
 

@@ -12,4 +12,5 @@ struct CryptoCurrencyCompactInfo: Identifiable, Codable {
     let symbol: String
     let name: String
     let icon: String
+    let price: String
 }

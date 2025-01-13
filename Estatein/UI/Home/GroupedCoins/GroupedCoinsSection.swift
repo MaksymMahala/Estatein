@@ -8,8 +8,8 @@
 import SwiftUI
 
 struct GroupedCoinsSection: View {
-    @StateObject private var webSocketManager = WebSocketManager()
-    @StateObject private var viewModel = CryptoCompactInfoViewModel()
+    @StateObject private var webSocketManager = WebSocketClient()
+    @StateObject private var viewModel = CryptoCompactInfoViewModel(cryptoCurrencyService: CryptoCurrencyService(networkService: NetworkService()))
 
     var body: some View {
         VStack {
@@ -17,11 +17,8 @@ struct GroupedCoinsSection: View {
             
             topCoins
         }
-        .onAppear {
-            webSocketManager.subscribeToSpot()
-        }
         .onDisappear {
-            webSocketManager.disconnect()
+            webSocketManager.disconnectWebSocket()
         }
     }
     

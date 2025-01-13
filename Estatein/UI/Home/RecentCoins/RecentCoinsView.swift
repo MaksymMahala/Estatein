@@ -8,9 +8,9 @@
 import SwiftUI
 
 struct RecentCoinsView: View {
-    @ObservedObject var webSocketManager: WebSocketManager
+    @ObservedObject var webSocketManager: WebSocketClient
     @ObservedObject var viewModel: CryptoCompactInfoViewModel
-
+    
     var body: some View {
         ScrollView(.horizontal, showsIndicators: false) {
             HStack {
@@ -21,20 +21,6 @@ struct RecentCoinsView: View {
         }
         .onAppear {
             viewModel.fetchRecentCryptocurrencies()
-        }
-    }
-}
-
-struct RecentCoinsView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            RecentCoinsView(webSocketManager: WebSocketManager(), viewModel: CryptoCompactInfoViewModel())
-                .previewDevice("iPhone 16 Pro")
-                .previewDisplayName("iPhone 16 Pro")
-            
-            RecentCoinsView(webSocketManager: WebSocketManager(), viewModel: CryptoCompactInfoViewModel())
-                .previewDevice("iPhone SE")
-                .previewDisplayName("iPhone SE")
         }
     }
 }

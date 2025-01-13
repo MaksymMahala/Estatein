@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CoinCell: View {
-    @ObservedObject var webSocketManager: WebSocketManager
+    @ObservedObject var webSocketManager: WebSocketClient
     @ObservedObject var viewModel: CryptoCompactInfoViewModel
     var stringFormatter = StringFormatter.shared
     var symbol: String
@@ -24,9 +24,17 @@ struct CoinCell: View {
                 .padding(5)
             VStack {
                 HStack {
-                    Text("$\(stringFormatter.formatPrice(webSocketManager.prices[symbol] ?? "N/A"))")
-                        .font(Font.soraBold12)
-                        .foregroundStyle(Color.greenGrass)
+                    HStack {
+                        if let price = webSocketManager.prices[symbol], !price.isEmpty {
+                            Text("$\(stringFormatter.formatPrice(price))")
+                                .font(Font.soraBold12)
+                                .foregroundStyle(Color.greenGrass)
+                        } else {
+                            Text("$\(stringFormatter.formatPrice(cryptocurrency.price))")
+                                .font(Font.soraBold12)
+                                .foregroundStyle(Color.greenGrass)
+                        }
+                    }
                     
                     AsyncImage(url: URL(string: cryptocurrency.icon)) { image in
                         image.resizable()

@@ -8,8 +8,8 @@
 import Foundation
 
 enum Constants {
-    enum URLS {
-        static let cryptoCurrenciesInfo: String = "http://localhost:5500/api/cryptocurrencies"
+    enum REST {
+        static let cryptoMarkets: String = "http://localhost:5500/api/cryptocurrencies"
     }
     enum WebSocketURLServer {
         static let webSocketURLServer: String = "ws://localhost:8080"

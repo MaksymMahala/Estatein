@@ -8,38 +8,20 @@
 import SwiftUI
 
 struct SpotCurrenciesView: View {
-    @StateObject private var webSocketManager = WebSocketManager()
-    @StateObject private var viewModel = CryptoCompactInfoViewModel()
+    @StateObject private var viewModel = CryptoCompactInfoViewModel(cryptoCurrencyService: CryptoCurrencyService(networkService: NetworkService()))
+    @Binding var prices: [String: String]
     
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
                 ForEach(viewModel.cryptocurrencies, id: \.id) { cryptocurrency in
-                    CryptoCurrenciesCell(webSocketManager: webSocketManager, symbol: cryptocurrency.symbol, cryptocurrency: cryptocurrency)
+                    CryptoCurrenciesCell(prices: prices, symbol: cryptocurrency.symbol, cryptocurrency: cryptocurrency)
                 }
             }
         }
         .padding(.vertical)
         .onAppear {
-            webSocketManager.subscribeToSpot()
             viewModel.fetchCryptocurrencies()
-        }
-        .onDisappear {
-            webSocketManager.disconnect()
-        }
-    }
-}
-
-struct SpotCurrenciesView_Previews: PreviewProvider {
-    static var previews: some View {
-        Group {
-            SpotCurrenciesView()
-                .previewDevice("iPhone 16 Pro")
-                .previewDisplayName("iPhone 16 Pro")
-            
-            SpotCurrenciesView()
-                .previewDevice("iPhone SE")
-                .previewDisplayName("iPhone SE")
         }
     }
 }

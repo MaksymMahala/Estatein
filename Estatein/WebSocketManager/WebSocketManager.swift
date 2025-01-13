@@ -1,99 +1,64 @@
-//  SocketClient.swift
-//  Minus1
-//
-//  Created by Max on 01.10.2024.
-//
-
-import Foundation
+import SwiftUI
 import Combine
 
-class WebSocketManager: ObservableObject {
-    @Published var prices: [String: String] = [:]
+class WebSocketClient: ObservableObject {
     private var webSocketTask: URLSessionWebSocketTask?
+    private let webSocketURL = URL(string: "ws://localhost:8080/binance")!
     
-    // Connect to the WebSocket server
-    func connect() {
-        let url = URL(string: "ws://localhost:8080")!
-        webSocketTask = URLSession.shared.webSocketTask(with: url)
+    @Published var prices: [String: String] = [:]
+    
+    init() {
+        connectWebSocket()
+    }
+    
+    func connectWebSocket() {
+        let urlSession = URLSession(configuration: .default)
+        webSocketTask = urlSession.webSocketTask(with: webSocketURL)
         webSocketTask?.resume()
-        print("Connected to WebSocket server")
-    }
-    
-    // Subscribe to the Spot stream
-    func subscribeToSpot() {
-        connect()
-        let subscribeMessage = "{\"type\": \"spot\"}"
-        sendMessage(subscribeMessage)
         receiveMessages()
     }
     
-    // Subscribe to the Futures stream
-    func subscribeToFutures() {
-        connect()
-        let subscribeMessage = "{\"type\": \"futures\"}"
-        sendMessage(subscribeMessage)
-        receiveMessages()
-    }
-    
-    // Function to send a message over WebSocket
-    private func sendMessage(_ message: String) {
-        let messageToSend = URLSessionWebSocketTask.Message.string(message)
-        webSocketTask?.send(messageToSend) { error in
-            if let error = error {
-                print("Error sending message: \(error.localizedDescription)")
-            }
-        }
-    }
-    
-    // Receive messages from the WebSocket server
     private func receiveMessages() {
         webSocketTask?.receive { [weak self] result in
             switch result {
-            case .failure(let error):
-                print("WebSocket error: \(error.localizedDescription)")
-                self?.reconnect() 
             case .success(let message):
                 switch message {
                 case .string(let text):
-                    self?.processMessage(text: text)
-                default:
-                    break
+                    self?.handleMessage(text)
+                case .data(let data):
+                    print("Received binary data: \(data)")
+                @unknown default:
+                    print("Received unknown message type")
                 }
+            case .failure(let error):
+                print("Error receiving message: \(error)")
             }
-            // Continue receiving messages
+            
             self?.receiveMessages()
         }
     }
     
-    // Process incoming messages
-    private func processMessage(text: String) {
-        if let data = text.data(using: .utf8) {
-            do {
-                let priceUpdate = try JSONDecoder().decode(PriceUpdate.self, from: data)
-                DispatchQueue.main.async {
-                    self.prices[priceUpdate.symbol] = priceUpdate.price
-                }
-            } catch {
-                print("Error decoding message: \(error)")
+    private func handleMessage(_ text: String) {
+        if let data = text.data(using: .utf8),
+           let json = try? JSONSerialization.jsonObject(with: data) as? [String: String],
+           let symbol = json["Symbol"],
+           let price = json["Price"] {
+            DispatchQueue.main.async {
+                self.prices[symbol] = price
             }
         }
     }
     
-    private func reconnect() {
-        print("Attempting to reconnect...")
-        disconnect()
-        connect()
+    func sendMessage(_ message: String) {
+        let message = URLSessionWebSocketTask.Message.string(message)
+        webSocketTask?.send(message) { error in
+            if let error = error {
+                print("Error sending message: \(error)")
+            }
+        }
     }
     
-    // Disconnect from the WebSocket server
-    func disconnect() {
+    func disconnectWebSocket() {
         webSocketTask?.cancel(with: .goingAway, reason: nil)
-        print("Disconnected from WebSocket server")
     }
-}
-
-struct PriceUpdate: Codable {
-    let type: String
-    let symbol: String
-    let price: String
 }
