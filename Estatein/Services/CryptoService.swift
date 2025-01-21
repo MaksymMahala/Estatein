@@ -32,7 +32,7 @@ class CryptoCurrencyService {
     }
     
     func fetchTopCryptocurrencies(completion: @escaping (Result<[CryptoCurrencyCompactInfo], Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:5500/api/top-cryptocurrencies") else { return }
+        guard let url = URL(string: "https://crypto-app-back-489b3c42aa7f.herokuapp.com/api/top-cryptocurrencies") else { return }
         networkService.fetch(url: url, completion: completion)
     }
     
@@ -42,7 +42,7 @@ class CryptoCurrencyService {
     }
 
     func fetchRecentCryptocurrencies(completion: @escaping (Result<[CryptoCurrencyCompactInfo], Error>) -> Void) {
-        guard let url = URL(string: "http://localhost:5500/api/recent-cryptocurrencies") else { return }
+        guard let url = URL(string: "https://crypto-app-back-489b3c42aa7f.herokuapp.com/api/recent-cryptocurrencies") else { return }
         networkService.fetch(url: url, completion: completion)
     }
 }

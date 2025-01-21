@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		846E11B22D353C17003A7DF0 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 846E11B12D353C17003A7DF0 /* Alamofire */; };
-		84873DF32CE77D0200AE0077 /* Minus1_Chart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */; };
-		84873DF42CE77D0200AE0077 /* Minus1_Chart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		84A92E472CAC03350014503B /* SocketIO in Frameworks */ = {isa = PBXBuildFile; productRef = 84A92E462CAC03350014503B /* SocketIO */; };
+		84F6995F2D3FBF970032F0C8 /* Minus1Chart.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84F697182D3FBDC90032F0C8 /* Minus1Chart.framework */; };
+		84F699602D3FBF970032F0C8 /* Minus1Chart.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 84F697182D3FBDC90032F0C8 /* Minus1Chart.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -31,13 +31,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		84873DF52CE77D0200AE0077 /* Embed Frameworks */ = {
+		84F699612D3FBF970032F0C8 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				84873DF42CE77D0200AE0077 /* Minus1_Chart.framework in Embed Frameworks */,
+				84F699602D3FBF970032F0C8 /* Minus1Chart.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -48,7 +48,7 @@
 		848291B12CAAC00C00A9F257 /* Minus1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Minus1.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		848291C12CAAC00D00A9F257 /* Minus1Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Minus1Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		848291CB2CAAC00E00A9F257 /* Minus1UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Minus1UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Minus1_Chart.framework; sourceTree = "<group>"; };
+		84F697182D3FBDC90032F0C8 /* Minus1Chart.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Minus1Chart.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -88,8 +88,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				846E11B22D353C17003A7DF0 /* Alamofire in Frameworks */,
-				84873DF32CE77D0200AE0077 /* Minus1_Chart.framework in Frameworks */,
 				84A92E472CAC03350014503B /* SocketIO in Frameworks */,
+				84F6995F2D3FBF970032F0C8 /* Minus1Chart.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -134,7 +134,7 @@
 		848E97CB2CB7CED9001B14F5 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				848E97CC2CB7CED9001B14F5 /* Minus1_Chart.framework */,
+				84F697182D3FBDC90032F0C8 /* Minus1Chart.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -149,7 +149,7 @@
 				848291AD2CAAC00C00A9F257 /* Sources */,
 				848291AE2CAAC00C00A9F257 /* Frameworks */,
 				848291AF2CAAC00C00A9F257 /* Resources */,
-				84873DF52CE77D0200AE0077 /* Embed Frameworks */,
+				84F699612D3FBF970032F0C8 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);

@@ -39,7 +39,7 @@ struct CryptoCurrenciesCell: View {
             
             Spacer()
             
-            Text("$\(stringFormatter.formatPrice(prices[symbol] ?? "N/A"))")
+            Text("$\(stringFormatter.formatPrice(prices[symbol] ?? cryptocurrency.price))")
                 .font(Font.soraBold15)
                 .foregroundStyle(Color.white)
         }

@@ -9,10 +9,10 @@ import Foundation
 
 enum Constants {
     enum REST {
-        static let cryptoMarkets: String = "http://localhost:5500/api/cryptocurrencies"
+        static let cryptoMarkets: String = "https://crypto-app-back-489b3c42aa7f.herokuapp.com/api/cryptocurrencies"
     }
     enum WebSocketURLServer {
-        static let webSocketURLServer: String = "ws://localhost:8080"
+        static let webSocketURLServer: String = "wss://minus1-asp-net-c45d1500aed6.herokuapp.com"
     }
     
     enum WebSocketSymbol {

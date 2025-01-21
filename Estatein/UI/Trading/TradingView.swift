@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Minus1_Chart
+import Minus1Chart
 
 struct TradingView: View {
     @StateObject private var viewModel = TradingViewModel()
@@ -21,22 +21,18 @@ struct TradingView: View {
                     
                     VStack {
                         CategoryValueType(selectValue: $viewModel.selectValue)
-                            .padding(.bottom, 30)
+                            .padding(.vertical, 5)
                         
-                        CandleStickChartView()
-                            .frame(height: 350)
+                        Minus1CandleStickChart(zoomLevel: .constant(1.0), chartHeight: 400, selectedTimeFrame: .constant("1m"), greenColor: Color.digitalDarkGreen, symbol: "BTCUSDT")
                         
                         buttomsSellBuy
-                            .padding(.top)
+                            .padding(.vertical, 10)
                         
-                        orderSelection
-                        
-                        ordersList
-                        
+                        OrderBookView()
                     }
                 }
-                .applyToolbar()
             }
+            .applyToolbar()
         }
     }
     
@@ -70,6 +66,7 @@ struct TradingView: View {
                     }
             }
         }
+        .padding(.horizontal)
         .font(Font.soraBold15)
     }
     

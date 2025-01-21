@@ -3,7 +3,7 @@ import Combine
 
 class WebSocketClient: ObservableObject {
     private var webSocketTask: URLSessionWebSocketTask?
-    private let webSocketURL = URL(string: "ws://localhost:8080/binance")!
+    private let webSocketURL = URL(string: Constants.WebSocketURLServer.webSocketURLServer + "ws/all-currency-ticker")!
     
     @Published var prices: [String: String] = [:]
     
@@ -40,12 +40,14 @@ class WebSocketClient: ObservableObject {
     
     private func handleMessage(_ text: String) {
         if let data = text.data(using: .utf8),
-           let json = try? JSONSerialization.jsonObject(with: data) as? [String: String],
-           let symbol = json["Symbol"],
-           let price = json["Price"] {
+           let json = try? JSONSerialization.jsonObject(with: data, options: []) as? [String: Any],
+           let symbol = json["Symbol"] as? String,
+           let closePrice = json["ClosePrice"] as? Double {
             DispatchQueue.main.async {
-                self.prices[symbol] = price
+                self.prices[symbol] = String(format: "%.6f", closePrice)
             }
+        } else {
+            print("Failed to parse message: \(text)")
         }
     }
     
