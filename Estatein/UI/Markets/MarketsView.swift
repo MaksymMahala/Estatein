@@ -8,8 +8,10 @@
 import SwiftUI
 
 struct MarketsView: View {
+    @StateObject private var webSocketManager = WebSocketClient()
     var stringFormatter = StringFormatter.shared
     @State var selectValue = 0
+    
     var body: some View {
         NavigationStack {
             ZStack {
@@ -23,9 +25,9 @@ struct MarketsView: View {
                     case 0:
                         ProgressView()
                     case 1:
-                        SpotCurrenciesView()
+                        SpotCurrenciesView(prices: $webSocketManager.prices)
                     case 2:
-                        FuturesCurrenciesView()
+                        FuturesCurrenciesView(prices: $webSocketManager.prices)
                     case 3:
                         ProgressView()
                     default:
@@ -40,6 +42,9 @@ struct MarketsView: View {
                     .padding(.vertical, 5)
                     
                     Spacer(minLength: 100)
+                }
+                .onDisappear {
+                    webSocketManager.disconnectWebSocket()
                 }
             }
             .applyToolbar()

@@ -9,7 +9,7 @@ import Foundation
 import SwiftUI
 
 struct CryptoCurrenciesCell: View {
-    @ObservedObject var webSocketManager: WebSocketManager
+    var prices: [String: String]
     var stringFormatter = StringFormatter.shared
     var symbol: String
     var cryptocurrency: CryptoCurrencyCompactInfo
@@ -39,7 +39,7 @@ struct CryptoCurrenciesCell: View {
             
             Spacer()
             
-            Text("$\(stringFormatter.formatPrice(webSocketManager.prices[symbol] ?? "N/A"))")
+            Text("$\(stringFormatter.formatPrice(prices[symbol] ?? cryptocurrency.price))")
                 .font(Font.soraBold15)
                 .foregroundStyle(Color.white)
         }
